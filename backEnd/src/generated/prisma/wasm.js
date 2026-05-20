@@ -118,7 +118,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/luzayadiovila/Documents/GitHub/Users/api/src/generated/prisma",
+      "value": "/Users/luzayadiovila/Documents/GitHub/Users/backEnd/src/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -132,7 +132,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/luzayadiovila/Documents/GitHub/Users/api/prisma/schema.prisma",
+    "sourceFilePath": "/Users/luzayadiovila/Documents/GitHub/Users/backEnd/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -146,6 +146,7 @@ const config = {
     "db"
   ],
   "activeProvider": "mongodb",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
