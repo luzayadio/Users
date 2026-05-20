@@ -20,6 +20,9 @@ function App() {
           <p>
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
+          <p>
+            Joana Mateketa Vila na área
+          </p>
         </div>
         <button
           type="button"
