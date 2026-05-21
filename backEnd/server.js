@@ -1,8 +1,20 @@
 import express from 'express'
 import { prisma } from "./src/utils/prisma.js";
+import cors from 'cors'
 
 const app = express()
 app.use(express.json())
+
+const allowedOrigins = ['http://localhost:5173', 'https://users-gl4m.onrender.com']
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    }
+}))
 
 //const users = []
 

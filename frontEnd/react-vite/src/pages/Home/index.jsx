@@ -1,20 +1,26 @@
+import { useEffect } from 'react'
 import './style.css'
 import Trash from '../../assets/trash.svg'
+import api from '../../services/api'
 
 function Home() {
 
-  const users = [
-    {
-      name: 'Luzayadio Vila',
-      email: 'lbenivila@gmail.com',
-      birthdate: '1990-01-01',
-    },
-    {
-      name: 'Joana Vila',
-      email: 'lbenivila@gmail.com',
-      birthdate: '1990-01-01',
-    }
-  ]
+  let users = []
+
+  async function getUsers() {
+    await api.get('/users')
+      .then((response) => {
+        console.log(response.data)
+        users = response.data
+      })
+      .catch((error) => {
+        console.error('Erro ao obter usuários:', error)
+      })
+  }
+
+  useEffect(() => {
+    getUsers()
+  }, [])
 
   return (
     <div className='container'>
@@ -29,9 +35,9 @@ function Home() {
       {users.map((user) => (
         <div key={user.id} className='card'>
           <div>
-            <p>Nome: {user.name}</p>
-            <p>Email: {user.email}</p>
-            <p>Data de nascimento: {user.birthdate}</p>
+            <p>Nome: <span>{user.name}</span></p>
+            <p>Email: <span>{user.email}</span></p>
+            <p>Data de nascimento: <span>{user.birthdate}</span></p>
           </div>
           <button type='button'>
             <img src={Trash} alt="Excluir" />
